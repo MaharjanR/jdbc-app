@@ -19,7 +19,6 @@ public class UserDao {
     public void createTable(){
         log.info("Creating table User");
         template.execute("CREATE TABLE USER ( USER_ID INT, USERNAME CHAR(20), PASSWORD CHAR(20), CREATE_DATE DATE )");
-        log.debug("Created Successfully");
     }
 
     public User createUser(User user){
