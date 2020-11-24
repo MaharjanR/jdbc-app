@@ -18,15 +18,12 @@ public class UserDao {
 
     public void createTable(){
         log.info("Creating table User");
-        template.execute("CREATE TABLE USER " +
-                "USER_ID INT " +
-                "USERNAME CHAR(25)" +
-                "PASSWORD CHAR(25)" +
-                "CREATE_DATE DATE ");
+        template.execute("CREATE TABLE USER ( USER_ID INT, USERNAME CHAR(20), PASSWORD CHAR(20), CREATE_DATE DATE )");
+        log.debug("Created Successfully");
     }
 
     public User createUser(User user){
-        String sql = "INSERT USER VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO USERS VALUES(?, ?, ?, ?)";
         template.update(sql, new Object[] { user.getId(), user.getUserName(), user.getUserPass(), user.getCreateDate()});
         return user;
     }
